@@ -40,7 +40,7 @@
         event.preventDefault()
         counter++
         counter_container.innerHTML = "<p style='font-size: 20px'>" + counter + "</p>"
-        if (counter >= 20) {
+        if (counter === 20) {
             document.getElementById("earth_normal").className = "d-none rounded mx-auto d-block"
             document.getElementById("earth_explosion").className = "rounded mx-auto d-block"
         }
