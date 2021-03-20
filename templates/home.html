@@ -1,42 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div style="padding: 20px" class="container">
-    <div class="row">
-        <div class="col align-self-center col-sm-2">
-            <p class="text-center">Click {{ dict.clicks }} times to destroy the Earth</p>
-            <form class="form" id='my_btn'>
-                <div class="d-none alert alert-danger" id='tweet-create-form-error'></div>
-            <button style="display: block;margin: 0 auto;" class="btn btn-primary text-center" type="submit">Button</button>
-            </form>
-        </div>
-        <div class="col align-self-center col-sm-4">
-            <p class="text-center">Current clicks: <strong id="some_id">zero:(</strong></p>
-        </div>
-    <div class="col col-sm-6">
-            <img id='earth_normal' src="../static/img/earth_normal.png" class="rounded mx-auto d-block" alt="..."
-                 style="width:200px; height:200px">
-            <img id='earth_explosion' src="../static/img/earth_explosion.png" class="d-none rounded mx-auto"
-                 alt="..."
-                 style="width:200px; height:200px">
+    <div style="padding: 20px" class="container">
+        <div class="row">
+            <div class="col align-self-center col-sm-2">
+                <p class="text-center">Click {{ dict.clicks }} times to destroy the Earth</p>
+                <form class="form" id='my_btn'>
+                    <div class="d-none alert alert-danger" id='tweet-create-form-error'></div>
+                    <button style="display: block;margin: 0 auto;" class="btn btn-primary text-center" type="submit">
+                        Button
+                    </button>
+                </form>
+            </div>
+            <div class="col align-self-center col-sm-4">
+                <p class="text-center">Current clicks: <strong id="some_id">zero:(</strong></p>
+            </div>
+            <div class="col col-sm-6">
+                <img id='earth_normal' src="../static/img/earth_normal.png" class="rounded mx-auto d-block" alt="..."
+                     style="width:200px; height:200px">
+                <img id='earth_explosion' src="../static/img/earth_explosion.png" class="d-none rounded mx-auto"
+                     alt="..."
+                     style="width:200px; height:200px">
+            </div>
         </div>
     </div>
-</div>
-<script>
-    const counter_container = document.getElementById("some_id")
-    let counter = 0
+    <script>
+        const counter_container = document.getElementById("some_id")
+        let counter = 0
 
-    function click(event) {
-        event.preventDefault()
-        counter++
-        counter_container.innerHTML = "<p style='font-size: 20px'>" + counter + "</p>"
-        if (counter === {{ dict.clicks }}) {
-            document.getElementById("earth_normal").className = "d-none rounded mx-auto"
-            document.getElementById("earth_explosion").className = "rounded mx-auto d-block"
+        function click(event) {
+            event.preventDefault()
+            counter++
+            counter_container.innerHTML = "<p style='font-size: 20px'>" + counter + "</p>"
+            if (counter === {{ dict.clicks }}) {
+                document.getElementById("earth_normal").className = "d-none rounded mx-auto"
+                document.getElementById("earth_explosion").className = "rounded mx-auto d-block"
+            }
         }
-    }
 
-    const button = document.getElementById("my_btn")
-    button.addEventListener('submit', click)
-</script>
+        const button = document.getElementById("my_btn")
+        button.addEventListener('submit', click)
+    </script>
 {% endblock content %}
