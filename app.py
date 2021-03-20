@@ -43,7 +43,8 @@ def starting_url():
     astro = requests.get('http://api.open-notify.org/astros.json')
     astro_json = astro.json()
     people_dict = astro_json.get("people")  # {'craft': 'ISS', 'name': 'Sergey Ryoko'}, ...
-    return render_template("astro.html", people_dict=people_dict)
+    astro_number = astro_json.get("number")
+    return render_template("astro.html", people_dict=people_dict, astro_number=astro_number)
 
 
 if __name__ == '__main__':
