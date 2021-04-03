@@ -1,6 +1,6 @@
-import requests
 from faker import Faker
 from flask import Flask, render_template
+import requests
 
 app = Flask(__name__)
 fake = Faker()
