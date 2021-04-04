@@ -4,7 +4,7 @@ install:
 freeze:
 	pip freeze > requirements.txt
 
-flake8:
+flake8-install:
 	pip install flake8 # сортировку импортов
 	pip install flake8-import-order # сортировку импортов
 	pip install flake8-docstrings # доки есть и правильно оформлены
